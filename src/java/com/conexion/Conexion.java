@@ -30,7 +30,7 @@ public class Conexion {
         try
         {
             Class.forName("org.postgresql.Driver").newInstance();
-            con=DriverManager.getConnection("jdbc:postgresql://localhost:5432/sistemadevoto?user=postgres&password=Itca123");
+            con=DriverManager.getConnection("jdbc:postgresql://localhost:5432/sistemadevoto?user=postgres&password=root");
         }
         catch (Exception e)
         {

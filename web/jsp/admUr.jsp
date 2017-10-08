@@ -21,8 +21,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <script src="js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="css/bootstrap.css">
+        <script src=".../js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href=".../css/bootstrap.css">
         <script>
             function cargar(no,junta)
             {
@@ -34,11 +34,25 @@
         <% if(request.getAttribute("valor")!=null) { %>
         <script>
             alert('<%= request.getAttribute("valor") %>');
+            location.replace('jsp/admUr.jsp');
         </script>
         <%
         }
         %>
     </head>
+    <%
+        HttpSession objSesion = request.getSession();
+        String usuario;
+        if (objSesion.getAttribute("usuario") != null && objSesion.getAttribute("nivel") == "1") {
+            usuario = objSesion.getAttribute("usuario").toString();
+        } else if (objSesion.getAttribute("usuario") != null && objSesion.getAttribute("nivel") == "2") {
+            out.print("<script>location.replace('vistaEmp.jsp');</script>");
+        } else if (objSesion.getAttribute("usuario") != null && objSesion.getAttribute("nivel") == "3") {
+            out.print("<script>location.replace('vistaDelegado.jsp');</script>");
+        } else {
+            out.print("<script>location.replace('../index.jsp');</script>");
+        }
+    %>
     <% CrudUrna crudUrn=new CrudUrna(); %>
     <body>
     
@@ -49,7 +63,7 @@
             <div class="row">
               
                 <div class="col-sm-6">
-                    <form action="procesarUrna" method="POST" name="frmUr" class="form-horizontal">
+                    <form action="../procesarUrna" method="POST" name="frmUr" class="form-horizontal">
                         <div class="form-group">
                             <label class="control-label col-sm-2">No Urna </label>
                             <div class="col-sm-10">
@@ -87,7 +101,7 @@
                         </div>
                         <br>
                         <div class="form-group">
-                            <label class="control-label col-sm-2"><a href="jsp/vistaAdm.jsp"><button type="button" class="btn btn-info"> Come Back</button></a></label>
+                            <label class="control-label col-sm-2"><a href="vistaAdm.jsp"><button type="button" class="btn btn-info"> Come Back</button></a></label>
                         </div>
                         
                     </form>

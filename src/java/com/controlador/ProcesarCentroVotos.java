@@ -56,7 +56,7 @@ public class ProcesarCentroVotos extends HttpServlet {
                 val="Datos eliminados correctamente";
             }
             
-            rd=request.getRequestDispatcher("admCV.jsp");
+            rd=request.getRequestDispatcher("jsp/admCV.jsp");
             request.setAttribute("valor", val);
             }
         catch (Exception e)

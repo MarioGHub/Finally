@@ -21,8 +21,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <script src="js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="css/bootstrap.css">
+        <script src=".../js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href=".../css/bootstrap.css">
         <script>
             function cargar(numjr,numcv,iddel,nombre,canpap,car,gen,fecnac,dir,tel)
             {
@@ -41,6 +41,7 @@
         <% if(request.getAttribute("valor")!=null) { %>
         <script>
             alert('<%= request.getAttribute("valor") %>');
+            location.replace('jsp/admJRV.jsp');
         </script>
         <%
         }
@@ -56,7 +57,7 @@
             <div class="row">
               
                 <div class="col-sm-4">
-                    <form action="procesarJunta" method="POST" name="frmJRV" class="form-horizontal">
+                    <form action="../procesarJunta" method="POST" name="frmJRV" class="form-horizontal">
                         <div class="form-group">
                             <label class="control-label col-sm-2">Numero Junta: </label>
                             <div class="col-sm-10">
@@ -158,7 +159,7 @@
                         </div>
                         <br>
                         <div class="form-group">
-                            <label class="control-label col-sm-2"><a href="jsp/vistaAdm.jsp"><button type="button" class="btn btn-info"> Come Back</button></a></label>
+                            <label class="control-label col-sm-2"><a href="vistaAdm.jsp"><button type="button" class="btn btn-info"> Come Back</button></a></label>
                         </div>
                         
                     </form>

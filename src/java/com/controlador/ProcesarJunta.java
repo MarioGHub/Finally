@@ -60,7 +60,7 @@ public class ProcesarJunta extends HttpServlet {
                 val="Datos eliminados correctamente";
             }
             
-            rd=request.getRequestDispatcher("admJRV.jsp");
+            rd=request.getRequestDispatcher("jsp/admJRV.jsp");
             request.setAttribute("valor", val);
             }
         catch (Exception e)

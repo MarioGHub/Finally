@@ -53,7 +53,7 @@ public class ProcesarUsuario extends HttpServlet {
                 val="Datos eliminados correctamente";
             }
             
-            rd=request.getRequestDispatcher("admUsu.jsp");
+            rd=request.getRequestDispatcher("jsp/admUsu.jsp");
             request.setAttribute("valor", val);
             }
         catch (Exception e)

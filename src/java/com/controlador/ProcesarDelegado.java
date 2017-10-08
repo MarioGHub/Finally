@@ -56,7 +56,7 @@ public class ProcesarDelegado extends HttpServlet {
                 val="Datos eliminados correctamente";
             }
             
-            rd=request.getRequestDispatcher("admDeI.jsp");
+            rd=request.getRequestDispatcher("jsp/admDeI.jsp");
             request.setAttribute("valor", val);
             }
         catch (Exception e)

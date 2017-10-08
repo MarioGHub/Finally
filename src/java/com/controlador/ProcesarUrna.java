@@ -52,7 +52,7 @@ public class ProcesarUrna extends HttpServlet {
                 val="Datos eliminados correctamente";
             }
             
-            rd=request.getRequestDispatcher("admUr.jsp");
+            rd=request.getRequestDispatcher("jsp/admUr.jsp");
             request.setAttribute("valor", val);
             }
         catch (Exception e)

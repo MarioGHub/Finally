@@ -53,7 +53,7 @@ public class ProcesarMunicipio extends HttpServlet {
                 val="Datos eliminados correctamente";
             }
             
-            rd=request.getRequestDispatcher("admMun.jsp");
+            rd=request.getRequestDispatcher("jsp/admMun.jsp");
             request.setAttribute("valor", val);
             }
         catch (Exception e)

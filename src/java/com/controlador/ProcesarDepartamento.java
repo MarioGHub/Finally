@@ -59,7 +59,7 @@ public class ProcesarDepartamento extends HttpServlet {
                 val="Datos eliminados correctamente";
             }
             
-            rd=request.getRequestDispatcher("admDep.jsp");
+            rd=request.getRequestDispatcher("jsp/admDep.jsp");
             request.setAttribute("valor", val);
             }
         catch (Exception e)

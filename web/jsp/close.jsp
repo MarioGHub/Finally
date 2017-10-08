@@ -7,8 +7,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page session="true" %>
 <%
-HttpSession obSesion=request.getSession();
-obSesion.invalidate();
+    HttpSession obSesion = request.getSession();
+    obSesion.invalidate();
+    out.print("<script>location.replace('../index.jsp');</script>");
 %>      
 <!DOCTYPE html>
 <html>
