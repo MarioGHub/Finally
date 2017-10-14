@@ -32,6 +32,10 @@
         <servlet-name>ProcesarUrna</servlet-name>
         <servlet-class>com.controlador.ProcesarUrna</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProcesarPadron</servlet-name>
+        <servlet-class>com.controlador.ProcesarPadron</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ProcesarDepartamento</servlet-name>
         <url-pattern>/procesarDepartamento</url-pattern>
@@ -63,6 +67,10 @@
     <servlet-mapping>
         <servlet-name>ProcesarUrna</servlet-name>
         <url-pattern>/procesarUrna</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProcesarPadron</servlet-name>
+        <url-pattern>/procesarPadron</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

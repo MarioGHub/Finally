@@ -40,10 +40,10 @@
             <div class="row">
                 <div class="col-sm-4">
                     <div class="thumbnail">.
-                        <a href="admDep.jsp">
+                        <a href="admPa.jsp">
                             <img src="../images/hombre-que-sostiene-el-papel-voto-en-la-caja_318-64517.jpg" style="width: 80%;height: 250px" class="img-thumbnail">
                             <div class="caption">
-                                <p>Gesttionar Votante</p>
+                                <p>Gestionar Votante</p>
                             </div>
                         </a>
                     </div>

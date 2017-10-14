@@ -4,6 +4,9 @@
     Author     : Rivera
 --%>
 
+<%@page import="com.modelo.Padron"%>
+<%@page import="com.modelo.Urna"%>
+<%@page import="com.modelo.CrudPadron"%>
 <%@page import="com.modelo.Municipio"%>
 <%@page import="com.modelo.CrudMunicipio"%>
 <%@page import="com.modelo.Departamento"%>
@@ -19,18 +22,20 @@
         <script src=".../js/bootstrap.min.js"></script>
         <link rel="stylesheet" href=".../css/bootstrap.css">
         <script>
-            function cargar(id,nombre,depto,cv)
+            function cargar(dui,nombre,direccion,nourna,genero,edad)
             {
-                document.frmMun.idmunicipio.value=id;
-                document.frmMun.nombre.value=nombre;
-                document.frmMun.nodepto.value=depto;
-                document.frmMun.numcv.value=cv;
+                document.frmPa.dui.value=dui;
+                document.frmPa.nombre.value=nombre;
+                document.frmPa.direccion.value=direccion;
+                document.frmPa.nourna.value=nourna;
+                document.frmPa.genero.value=genero;
+                document.frmPa.edad.value=edad;
             }
         </script>
         <% if(request.getAttribute("valor")!=null) { %>
         <script>
             alert('<%= request.getAttribute("valor") %>');
-            location.replace('jsp/admMun.jsp');
+            location.replace('jsp/admPa.jsp');
         </script>
         <%
         }
@@ -42,45 +47,51 @@
         if (objSesion.getAttribute("usuario") != null && objSesion.getAttribute("nivel") == "1") {
             usuario = objSesion.getAttribute("usuario").toString();
         } else if (objSesion.getAttribute("usuario") != null && objSesion.getAttribute("nivel") == "2") {
-            out.print("<script>location.replace('vistaEmp.jsp');</script>");
+            usuario = objSesion.getAttribute("usuario").toString();
         } else if (objSesion.getAttribute("usuario") != null && objSesion.getAttribute("nivel") == "3") {
             usuario = objSesion.getAttribute("usuario").toString();
         } else {
             out.print("<script>location.replace('../index.jsp');</script>");
         }
     %>
-    <% CrudMunicipio crudMuni=new CrudMunicipio(); %>
+    <% CrudPadron crudPa=new CrudPadron(); %>
     <body>
     
         <div class="container-fluid">
             <center>
-                <h1>MUNICIPIO</h1>
+                <h1>Padron</h1>
             </center>
             <div class="row">
               
                 <div class="col-sm-6">
-                    <form action="../procesarMunicipio" method="POST" name="frmMun" class="form-horizontal">
+                    <form action="../procesarPadron" method="POST" name="frmPa" class="form-horizontal">
                         <div class="form-group">
-                            <label class="control-label col-sm-2">Cod: </label>
+                            <label class="control-label col-sm-2">Dui: </label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" placeholder="Ingrese codigo de Municipio" name="idmunicipio">
+                                <input type="text" class="form-control" placeholder="Ingrese codigo de Dui" name="dui">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-2">Nombre </label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" placeholder="Ingrese nombre de Municpio" name="nombre">
+                                <input type="text" class="form-control" placeholder="Ingrese nombre de Persona" name="nombre">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-2">Departamento </label>
+                            <label class="control-label col-sm-2">Direccion </label>
                             <div class="col-sm-10">
-                                <select name="nodepto" class="form-control">
+                                <textarea class="form-control" name="direccion"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">Numero Urna </label>
+                            <div class="col-sm-10">
+                                <select name="nourna" class="form-control">
                                     <%
-                                    List<Departamento> lsDep=crudMuni.lsDep();
-                                    for (Departamento d:lsDep){
+                                    List<Urna> lsUrna=crudPa.listarUrna();
+                                    for (Urna u:lsUrna){
                                     %>
-                                    <option value="<%= d.getCodDepto() %>"><%= d.getNombre() %></option>
+                                    <option value="<%= u.getNoUrna()%>"><%= u.getNoUrna()%></option>
                                     <%
                                     }
                                     %>
@@ -88,9 +99,17 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-2">Numero de Centro de Votos </label>
+                            <label class="control-label col-sm-2">Genero </label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" placeholder="" name="numcv">
+                               Masculino <input type="radio"  placeholder="" name="genero" value="Masculino">
+                               Femenino <input type="radio"  placeholder="" name="genero" value="Femenino">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">Edad </label>
+                            <div class="col-sm-10">
+                               <input type="text" class="form-control" placeholder="" name="edad">
+                               
                             </div>
                         </div>
                         <div class="form-group">
@@ -119,23 +138,27 @@
                 
                             <thead>
                                 <tr>
-                                    <td>Cod</td>
+                                    <td>Dui</td>
                                     <td>Nombre</td>
-                                    <td>Departamento ID</td>
-                                    <td >Numero de Centros</td>
+                                    <td>Direccion</td>
+                                    <td>No Urna</td>
+                                    <td>Genero</td>
+                                    <td>Edad</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <%
-                                List<Municipio> listaM=crudMuni.mostrar();
-                                for(Municipio mun:listaM) {
+                                List<Padron> listaP=crudPa.mostrar();
+                                for(Padron pa:listaP) {
                                 %>
                                 <tr>
-                                    <td><%= mun.getIdMunicipio()%></td>
-                                    <td><%= mun.getNombreMun()%></td>
-                                    <td><%= mun.getNoDepto()%></td>
-                                    <td><%= mun.getNumeroCV()%></td>
-                                    <td><a href="javascript:cargar(<%= mun.getIdMunicipio()%>,'<%= mun.getNombreMun()%>','<%= mun.getNoDepto()%>','<%= mun.getNumeroCV() %>');">Seleccionar</a></td>
+                                    <td><%= pa.getDui()%></td>
+                                    <td><%= pa.getNombre()%></td>
+                                    <td><%= pa.getDireccion()%></td>
+                                    <td><%= pa.getNourna()%></td>
+                                    <td><%= pa.getGenero()%></td>
+                                    <td><%= pa.getEdad()%></td>
+                                    <td><a href="javascript:cargar(<%= pa.getDui()%>,'<%= pa.getNombre()%>','<%= pa.getDireccion()%>','<%= pa.getNourna()%>','<%= pa.getGenero()%>','<%= pa.getEdad()%>');">Seleccionar</a></td>
                                 </tr>
                                 <%
                                 }

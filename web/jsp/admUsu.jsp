@@ -36,6 +36,19 @@
         }
         %>
     </head>
+    <%
+        HttpSession objSesion = request.getSession();
+        String usuario;
+        if (objSesion.getAttribute("usuario") != null && objSesion.getAttribute("nivel") == "1") {
+            usuario = objSesion.getAttribute("usuario").toString();
+        } else if (objSesion.getAttribute("usuario") != null && objSesion.getAttribute("nivel") == "2") {
+            out.print("<script>location.replace('vistaEmp.jsp');</script>");
+        } else if (objSesion.getAttribute("usuario") != null && objSesion.getAttribute("nivel") == "3") {
+            out.print("<script>location.replace('vistaDelegado.jsp');</script>");
+        } else {
+            out.print("<script>location.replace('../index.jsp');</script>");
+        }
+    %>
     <% CrudUsuario crudUsu=new CrudUsuario(); %>
     <body>
     
@@ -70,8 +83,8 @@
                             <div class="col-sm-10">
                                 <select name="tipo" class="form-control">
                                     <option value="1">Administrador</option>
-                                    <option value="2">Votante</option>
-                                    <option value="3">Delegado</option>
+                                    <option value="2">Empleado</option>
+                                    <option value="3">Magistrado</option>
                                 </select>
                             </div>
                         </div>

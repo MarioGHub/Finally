@@ -48,7 +48,7 @@
         } else if (objSesion.getAttribute("usuario") != null && objSesion.getAttribute("nivel") == "2") {
             out.print("<script>location.replace('vistaEmp.jsp');</script>");
         } else if (objSesion.getAttribute("usuario") != null && objSesion.getAttribute("nivel") == "3") {
-            out.print("<script>location.replace('vistaDelegado.jsp');</script>");
+            usuario = objSesion.getAttribute("usuario").toString();
         } else {
             out.print("<script>location.replace('../index.jsp');</script>");
         }
@@ -112,8 +112,8 @@
                 
                             <thead>
                                 <tr>
-                                    <td>No Centro</td>
-                                    <td>Municpio</td>
+                                    <td>No Urna</td>
+                                    <td>no Junta Receptora</td>
                                      
                                 </tr>
                             </thead>

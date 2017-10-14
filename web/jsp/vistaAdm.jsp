@@ -105,7 +105,7 @@
             <div class="row">
                 <div class="col-sm-4">
                     <div class="thumbnail">.
-                        <a href="admJRV.jsp">
+                        <a href="admUr.jsp">
                             <img src="../images/sobres-electorales-y-caja_318-64514.jpg" style="width: 80%;height: 250px" class="img-thumbnail">
                             <div class="caption">
                                 <p>Gestionar Urna</p>

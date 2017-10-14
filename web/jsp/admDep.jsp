@@ -33,6 +33,19 @@
         }
         %>
     </head>
+     <%
+        HttpSession objSesion = request.getSession();
+        String usuario;
+        if (objSesion.getAttribute("usuario") != null && objSesion.getAttribute("nivel") == "1") {
+            usuario = objSesion.getAttribute("usuario").toString();
+        } else if (objSesion.getAttribute("usuario") != null && objSesion.getAttribute("nivel") == "2") {
+            out.print("<script>location.replace('vistaEmp.jsp');</script>");
+        } else if (objSesion.getAttribute("usuario") != null && objSesion.getAttribute("nivel") == "3") {
+            usuario = objSesion.getAttribute("usuario").toString();
+        } else {
+            out.print("<script>location.replace('../index.jsp');</script>");
+        }
+    %>
     <% CrudDepto crudDep=new CrudDepto(); %>
     <body>
     
