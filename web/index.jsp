@@ -1,92 +1,120 @@
 <%-- 
-    Document   : loguin
-    Created on : 09-23-2017, 12:32:51 PM
-    Author     : Rivera
+    Document   : index
+    Created on : 10-16-2017, 09:14:29 PM
+    Author     : VA
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page session="true" %>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">       
-        <link rel="stylesheet" href="font/css/font-awesome.min.css">
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!--Stylesheets-->
+        <link type="text/css" rel="stylesheet" href="css/font-awesome.css"/>
+        <link type="text/css" rel="stylesheet" href="css/style.css"/>
+        <link rel='stylesheet prefetch' href='css/bootstrap.min.css'/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+        <!-- Scripts -->
+        <script src="js/validar.js"></script>
         <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="css/bootstrap.css">
-        <title>Login</title>
+        <script src="js/jquery.mask.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('.dui').mask('00000000-0');
+            });
+        </script>
+        <title>Login Votantes</title>
     </head>
-<body class="container-fluid">
-    <div class="jumbotron text-center">
-        <h1 style="background: skyblue; font-family: fantasy ;">Sistema de Votos</h1>
-    </div>
-    <div class="row">
-        <div class="col-sm-9" >
-            <div class="container--head">
-                <div id="slidercaption" class="carousel slide" data-ride="carousel">
+    <body class="inicio">
+        <header class="portada">
+            <img src="images/tse.png"><br>
+            <h1>ACCESO VOTANTE</h1>
+        </header>
+        <div class="wrapper">
+            <div class="col-md-8">
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">                
                     <ol class="carousel-indicators">
-                        <li data-target="#slidercaption" data-slide-to="0" class="active"></li>
-                        <li data-target="#slidercaption" data-slide-to="1"></li>
-                        <li data-target="#slidercaption" data-slide-to="2"></li>
-                        <li data-target="#slidercaption" data-slide-to="3"></li>
-                        <li data-target="#slidercaption" data-slide-to="4"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="3"></li>
                     </ol>
                     <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img class="d-block img-fluid" src="images/slider/imagen1.png" alt="..." style="width:100%">
+                        <div class="item active">
+                            <img src="images/slider/img.png" alt="First slide">
+                            <div class="carousel-caption">
+                                <h3>PASO 1</h3>
+                                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                            </div>
                         </div>
-                        <div class="carousel-item">
-                            <img class="d-block img-fluid" src="images/slider/imagen2.png" alt="..." style="width:100%">
+                        <div class="item">
+                            <img src="images/slider/img.png" alt="Second slide">
+                            <div class="carousel-caption">
+                                <h3>PASO 2</h3>
+                                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                            </div>
                         </div>
-                        <div class="carousel-item">
-                            <img class="d-block img-fluid" src="images/slider/imagen3.png" alt="..." style="width:100%">
+                        <div class="item">
+                            <img src="images/slider/img.png" alt="Third slide">
+                            <div class="carousel-caption">
+                                <h3>PASO 3</h3>
+                                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                            </div>
                         </div>
-                        <div class="carousel-item">
-                            <img class="d-block img-fluid" src="images/slider/imagen4.png" alt="..." style="width:100%">
-                            <!--<div class="carousel-caption d-none d-md-block">
-                                <h3>Lorem ipsum dolor</h3>
-                            </div>-->
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block img-fluid" src="images/slider/imagen5.png" alt="..." style="width:100%">
+                        <div class="item">
+                            <img src="images/slider/img.png" alt="Third slide">
+                            <div class="carousel-caption">
+                                <h3>PASO 4</h3>
+                                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                            </div>
                         </div>
                     </div>
-                    <a class="carousel-control-prev" href="#slidercaption" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
+                    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
                     </a>
-                    <a class="carousel-control-next" href="#slidercaption" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
+                    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
                     </a>
                 </div>
             </div>
+            <div class="col-md-4">
+                <form action="iniciarSesio" method="POST" class="form-signin">
+                    <div class=" form-group">
+                        <span class="input-group-addon"><label>DUI</label><br><span class="fa fa-vcard-o"></span></span>
+                        <input type="text" class="dui form-control inputFormu" id="usu" minlength="10" name="txtUsu" placeholder="00000000-0" onkeyup="validar()" required="" autofocus="" />
+                    </div> 
+                    <div class=" form-group">
+                        <span class="input-group-addon"><label>CONTRASEÑA</label><br><span class="fa fa-lock"></span></span>
+                        <input type="password" class="form-control inputFormu" id="clave" name="txtClave" placeholder="Contraseña" onkeyup="validar()" required="" />
+                    </div>
+                    <center>
+                        <button id="boton" type="button" class="btn btn-info fa fa-sign-in btn-block" style="color: #000;" data-toggle="modal" data-target="#myModal" disabled="true"><span class="font"> Continuar</span></button>
+                        <button type="button" onclick="javascript: window.location.reload();" class="btn btn-default btn-block fa fa-times" style="background: pink;"><span class="font"> Cancelar</span></button>
+                    </center>
+                    <!-- Modal respuesta-->
+                    <div class="modal fade" id="myModal" role="dialog">
+                        <div class="modal-dialog">
+                            <!-- Modal contenedor-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal"><span class="fa fa-times-circle"></span></button>
+                                    <img src="images/tse.png">
+                                </div>
+                                <div class="modal-body">
+                                    <label>Ingrese su respuesta....</label>
+                                    <input type="text" id="res" class="form-control" placeholder="Respuesta" required="" autofocus=""/>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default btn-block fa fa-times" data-dismiss="modal" style="background: pink;"><span class="font"> Cancelar</span></button>
+                                    <button type="button" id="btnLR" onclick="lim()" class="btn btn-default btn-block fa fa-eraser" style="background: #9ffb8f;"><span class="font"> Limpiar</span></button>
+                                    <button type="submit" class="btn btn-default btn-block fa fa-sign-in" style="background: turquoise" name="btnEnviar"> <span class="font"> Acceder</span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
-        <div class="col-sm-3">
-            <form action="iniciarSesio" method="POST" class="form-horizontal" style="border: solid; border-color: indigo; border-radius: 8px 8px 8px 8px; background: #a6e1ec;">
-                <center><span style="color:#000;"class="fa fa-user fa-5x"></span></center>
-                <div class="form-group">
-                    <label class="control-label col-md-2" for="txtUsu">Usuario: </label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" name="txtUsu" placeholder="Ingrese Usuario">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-md-2" for="txtClave">Clave:</label>
-                    <div class="col-sm-10">
-                        <input type="password" class="form-control" name="txtClave" placeholder="Ingrese Clave">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-default fa fa-sign-in" style="background: turquoise" name="btnEnviar"> Acceder</button>
-                        <button type="reset" class="btn btn-default fa fa-times" style="background: pink"> Cancelar</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</body>
+    </body>
 </html>

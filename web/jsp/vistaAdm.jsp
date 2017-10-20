@@ -10,12 +10,21 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-        <script src="../js/bootstrap.min.js"></script>
+        <!--Stylesheets-->
+        <link rel="stylesheet" href="../css/font-awesome.css"/>
+        <link rel="stylesheet"  href="../css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="../css/style.css"/>
         <link rel="stylesheet" href="../css/bootstrap.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+        <!--Scripts-->
+        <script src="../js/jquery.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <title>Administrador</title>
     </head>
     <%
         String user = "";
+        String back= "";
         HttpSession objSesion = request.getSession();
         String usuario;
         if (objSesion.getAttribute("usuario") != null && objSesion.getAttribute("nivel") == "1") {
@@ -26,15 +35,19 @@
         } else if (objSesion.getAttribute("usuario") != null && objSesion.getAttribute("nivel") == "3") {
             out.print("<script>location.replace('vistaDelegado.jsp');</script>");
         } else {
-            out.print("<script>location.replace('../index.jsp');</script>");
+            out.print("<script>window.history.back();</script>");
+            back= "<div class='modal fade'>";
         }
     %>
-    <body>
-        <div class="container-fluid">
-            <div class="jumbotron text-center">
-                <h1>Administradores</h1>
+    <body class="inicio">
+        <% out.print(back);%> <!--No permite que se vea nada de la pagina-->
+        <header class="portada">
+            <div class="col-md-3 col-md-offset-9">
+                <a class="btn btn-default"href='closeU.jsp' style="background: pink;"><span class="fa fa-sign-out"></span> Cerrar Sesion <%=user%></a><br>
             </div>
-        </div>
+            <img src="../images/tse.png"><br>
+            <h1>ADMINISTRADOR</h1>
+        </header>
         <div class="container">
             <div class="row">
                 <div class="col-sm-4">
@@ -112,9 +125,6 @@
                             </div>
                         </a>
                     </div>
-                </div>
-                <div class="col-sm-4">
-                    <a class="btn btn-danger"href='close.jsp'><img src="../images/exit.png"> Cerrar Sesion <%=user%></a>
                 </div>
                 <div class="col-sm-4"></div>
             </div>

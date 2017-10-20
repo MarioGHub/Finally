@@ -1,0 +1,74 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 10-18-2017, 11:43:09 PM
+    Author     : VA
+*/
+Fhtml, body, address, blockquote, div, dl, form, h1, h2, h3, h4, h5, h6, ol, p, pre, table, ul, dd, dt, li, tbody, td, tfoot, th, thead, tr, button, del, ins, map, object, a, abbr, acronym, b, bdo, big, br, cite, code, dfn, em, i, img, kbd, q, samp, small, span, strong, sub, sup, tt, var, legend, fieldset {
+	margin: 0;
+	padding: 0;
+}
+html, body{ height:100%;}
+body {background: #eff7ef url(../images/fondo.jpg) no-repeat center top;font-family: 'Hammersmith One', sans-serif;}
+
+body.inicio {background: #eff7ef url(../images/portada.jpg)}
+a {	text-decoration: none}
+img, fieldset {border: 0;}
+header{ text-align:center; padding:25px 0 5px 0;color:#006aa9; font-family: 'Lato', sans-serif; font-weight:300;}
+h1{font-weight:normal; font-size:44px; display: inline-block; padding:9px 20px 10px 20px; margin-bottom:-16px; text-transform:uppercase;}
+h1 span{font-family: 'Lato', sans-serif; font-weight:700}
+header p{ font-size:26px}
+h4{ color:#333;font-family: 'Lato', sans-serif; font-size:20px}
+h4 span{ color:#888}
+
+.wrapper {
+  margin-top: -27px;
+  margin-bottom: 0px;
+}
+.font{
+    font-family: Verdana ;
+    padding-left: 3px;
+}
+.form-signin {
+  background: #a6e1ec;
+  max-width: 380px;
+  padding: 15px 35px 40px;
+  margin: 0 auto;
+  border: solid;
+  border-color: #a6e1ec;
+  border-radius: 8px;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 30px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 20px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+

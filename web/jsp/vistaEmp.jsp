@@ -17,6 +17,7 @@
     <%
         String user = "";
         String admin = "";
+        String back = "";
         HttpSession objSesion = request.getSession(true);
         String usuario;
         if (objSesion.getAttribute("usuario") != null && objSesion.getAttribute("nivel") == "2") {
@@ -27,10 +28,12 @@
             user = "<label>" + usuario + "</label>";
             admin = "<a  class='btn btn-info' href='vistaAdm.jsp'> Panel Administrador</a>";
         } else {
-            out.print("<script>location.replace('../index.jsp');</script>");
+            out.print("<script>window.history.back();</script>");
+            back = "<div class='modal fade'>";
         }
     %>
     <body>
+        <% out.print(back);%> <!--No permite que se vea nada de la pagina-->
         <div class="container-fluid">
             <div class="jumbotron text-center">
                 <h1>Empleado</h1>
@@ -60,7 +63,7 @@
 
                 </div>
                 <div class="col-sm-4">
-                    <a href='close.jsp'><img src="../images/exit.png"> Cerrar Sesion <%=user%></a>
+                    <a href='closeU.jsp'><img src="../images/exit.png"> Cerrar Sesion <%=user%></a>
                         <%=admin%>
                 </div>
                 <div class="col-sm-4"></div>

@@ -9,15 +9,15 @@
 <%
     HttpSession obSesion = request.getSession();
     obSesion.invalidate();
-    out.print("<script>location.replace('../index.jsp');</script>");
+    out.print("<script>location.replace('../admin/');</script>");
 %>      
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Saliendo..</title>
     </head>
     <body>
-        <h1>Debe de <a href="index.jsp">Loguearse</a> para poder volver a Ingresar</h1>
+       <!-- <h1>Debe de <a href="index.jsp">Loguearse</a> para poder volver a Ingresar</h1> -->
     </body>
 </html>
