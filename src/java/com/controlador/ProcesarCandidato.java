@@ -5,10 +5,8 @@
  */
 package com.controlador;
 
-import com.modelo.CrudDelegado;
-import com.modelo.CrudUrna;
-import com.modelo.DelegadoInternacional;
-import com.modelo.Urna;
+import com.modelo.Candidato;
+import com.modelo.CrudCandidato;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -21,38 +19,42 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Rivera
  */
-public class ProcesarUrna extends HttpServlet {
+public class ProcesarCandidato extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-       PrintWriter out = response.getWriter();
-        Urna ur=new Urna();
-        CrudUrna crudUrn= new CrudUrna();
+        PrintWriter out = response.getWriter();
+        Candidato can=new Candidato();
+        CrudCandidato crudCan=new CrudCandidato();
         String val=null;
         RequestDispatcher rd=null;
         try
         {
-            ur.setNoUrna(Integer.parseInt(request.getParameter("nourna")));
-            ur.setNoJuntaVotos(Integer.parseInt(request.getParameter("nojunta")));
-            
+            can.setIdCandidato(Integer.parseInt(request.getParameter("idcandidato")));
+            can.setIdPartido(Integer.parseInt(request.getParameter("idpartido")));
+            can.setNombre(request.getParameter("nombre"));
+            can.setGenero(request.getParameter("genero"));
+            can.setEdad(Integer.parseInt(request.getParameter("edad")));
+            can.setTelefono(request.getParameter("telefono"));
+            can.setDireccion(request.getParameter("direccion"));
             if(request.getParameter("ingresar")!=null)
             {
-                crudUrn.insertar(ur);
+                crudCan.insertar(can);
                 val="Datos insertados correctamente";
             }
             else if(request.getParameter("modificar")!=null)
             {
-                crudUrn.modificar(ur);
+                crudCan.modificar(can);
                 val="Datos modificados correctamente";
             }
             else if(request.getParameter("eliminar")!=null)
             {
-                crudUrn.eliminar(ur);
+                crudCan.eliminar(can);
                 val="Datos eliminados correctamente";
             }
             
-            rd=request.getRequestDispatcher("admUr.jsp");
+            rd=request.getRequestDispatcher("admCan.jsp");
             request.setAttribute("valor", val);
             }
         catch (Exception e)
@@ -60,7 +62,6 @@ public class ProcesarUrna extends HttpServlet {
             request.setAttribute("error", e.toString());
         }
         rd.forward(request, response);
-    
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

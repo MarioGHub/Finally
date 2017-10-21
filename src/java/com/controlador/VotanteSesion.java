@@ -6,6 +6,7 @@
 package com.controlador;
 
 import com.modelo.UsuarioIngreso;
+import com.modelo.VotanteIngreso;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.logging.Level;
@@ -20,40 +21,48 @@ import javax.servlet.http.HttpSession;
  *
  * @author Rivera
  */
-public class IniciarSesio extends HttpServlet {
+public class VotanteSesion extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, Exception {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         HttpSession sesion=request.getSession();
-        if(request.getParameter("Enviar")!=null)
+        if(request.getParameter("btnEnviar")!=null)
         {
-            String usuario=request.getParameter("txtUsu");
-            String clave=request.getParameter("txtClave");
-            UsuarioIngreso ob=new UsuarioIngreso();
+            String Dui=request.getParameter("dui");
+            String Pass=request.getParameter("pass");
+            String Pregunta=request.getParameter("pregunta");
+            VotanteIngreso ob=new VotanteIngreso();
              
-            switch(ob.accederU(usuario, clave)){
+            switch(ob.acceder(Dui,Pass,Pregunta)){
                
-                case 1:
+                    case 1:
                     
-                    sesion.setAttribute("usuario", usuario);
-                    sesion.setAttribute("nivel", "1");
-                    response.sendRedirect("jsp/vistaAdm.jsp");
+                    sesion.setAttribute("dui", Dui);
+                    sesion.setAttribute("depto", "1");
+                    response.sendRedirect("jsp/Depto1.jsp");
                     break;
                 
                     case 2:
                     
-                    sesion.setAttribute("usuario", usuario);
-                    sesion.setAttribute("nivel", "2");
-                    response.sendRedirect("jsp/vistaEmp.jsp");
+                    sesion.setAttribute("dui", Dui);
+                    sesion.setAttribute("depto", "2");
+                    response.sendRedirect("jsp/Depto2.jsp");
                     break;
                     
                     case 3:
                     
-                    sesion.setAttribute("usuario", usuario);
-                    sesion.setAttribute("nivel", "3");
-                    response.sendRedirect("jsp/vistaDelegado.jsp");
+                    sesion.setAttribute("dui", Dui);
+                    sesion.setAttribute("depto", "3");
+                    response.sendRedirect("jsp/Depto3.jsp");
+                    break;
+                    
+                    case 4:
+                    
+                    sesion.setAttribute("dui", Dui);
+                    sesion.setAttribute("depto", "4");
+                    response.sendRedirect("jsp/Depto4.jsp");
                     break;
                     
                     default:
@@ -82,7 +91,7 @@ public class IniciarSesio extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (Exception ex) {
-            Logger.getLogger(IniciarSesio.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(VotanteSesion.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -100,7 +109,7 @@ public class IniciarSesio extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (Exception ex) {
-            Logger.getLogger(IniciarSesio.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(VotanteSesion.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

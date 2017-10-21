@@ -90,13 +90,33 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="thumbnail">.
-                        <a href="../admJRV.jsp">
-                            <img src="../images/sobres-electorales-y-caja_318-64514.jpg" style="width: 80%;height: 250px" class="img-thumbnail">
+                        <a href="../admPar.jsp">
+                            <img src="../images/Politics.png" style="width: 80%;height: 250px" class="img-thumbnail">
                             <div class="caption">
-                                <p>Gestionar Urna</p>
+                                <p>Gestionar Partido</p>
                             </div>
                         </a>
+                        </div>
                     </div>
+                    <div class="col-sm-4">
+                        <div class="thumbnail">.
+                        <a href="../admCan.jsp">
+                            <img src="../images/policy-1704549_1920.png" style="width: 80%;height: 250px" class="img-thumbnail">
+                            <div class="caption">
+                                <p>Gestionar Candidato</p>
+                            </div>
+                        </a>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="thumbnail">.
+                        <a href="../admVot.jsp">
+                            <img src="../images/hombre-que-sostiene-el-papel-voto-en-la-caja_318-64517.jpg" style="width: 80%;height: 250px" class="img-thumbnail">
+                            <div class="caption">
+                                <p>Gestionar Votante</p>
+                            </div>
+                        </a>
+                        </div>
                     </div>
                     <div class="col-sm-4">
                          <%

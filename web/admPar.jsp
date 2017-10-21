@@ -4,11 +4,8 @@
     Author     : Rivera
 --%>
 
-<%@page import="com.modelo.Urna"%>
-<%@page import="com.modelo.CrudUrna"%>
-<%@page import="com.modelo.JuntaReceptora"%>
-<%@page import="com.modelo.CentroVotos"%>
-<%@page import="com.modelo.CrudCentroVotos"%>
+<%@page import="com.modelo.Partido"%>
+<%@page import="com.modelo.CrudPartido"%>
 <%@page import="com.modelo.Municipio"%>
 <%@page import="com.modelo.CrudMunicipio"%>
 <%@page import="com.modelo.Departamento"%>
@@ -24,10 +21,10 @@
         <script src="js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="css/bootstrap.css">
         <script>
-            function cargar(no,junta)
+            function cargar(id,nombre)
             {
-                document.frmUrn.nourna.value=no;
-                document.frmUrn.nojunta.value=nojunta;
+                document.frmPar.idPartido.value=id;
+                document.frmPar.nombre.value=nombre;
                
             }
         </script>
@@ -39,39 +36,30 @@
         }
         %>
     </head>
-    <% CrudUrna crudUrn=new CrudUrna(); %>
+    <% CrudPartido crudPar=new CrudPartido(); %>
     <body>
     
         <div class="container-fluid">
             <center>
-                <h1>URNA</h1>
+                <h1>PARTIDO</h1>
             </center>
             <div class="row">
               
                 <div class="col-sm-6">
-                    <form action="procesarUrna" method="POST" name="frmUr" class="form-horizontal">
+                    <form action="procesarPartido" method="POST" name="frmPar" class="form-horizontal">
                         <div class="form-group">
-                            <label class="control-label col-sm-2">No Urna </label>
+                            <label class="control-label col-sm-2">Cod: </label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" placeholder="Ingrese codigo de Municipio" name="nourna">
+                                <input type="text" class="form-control" placeholder="Ingrese codigo de Partido" name="idPartido">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-2">No Junta Receptora </label>
+                            <label class="control-label col-sm-2">Nombre </label>
                             <div class="col-sm-10">
-                                <select name="nojunta" class="form-control">
-                                    <%
-                                    List<JuntaReceptora> lsJr=crudUrn.lsCentro();
-                                    for (JuntaReceptora jr:lsJr){
-                                    %>
-                                    <option value="<%= jr.getNumcentro()%>"><%= jr.getNombre()%></option>
-                                    <%
-                                    }
-                                    %>
-                                </select>
+                                <input type="text" class="form-control" placeholder="Ingrese nombre de Partido" name="nombre">
                             </div>
                         </div>
-                        
+                       
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
                                 <button type="submit" name="ingresar" class="btn btn-success"> Insertar</button>
@@ -98,21 +86,21 @@
                 
                             <thead>
                                 <tr>
-                                    <td>No Centro</td>
-                                    <td>Municpio</td>
-                                     
+                                    <td>Cod</td>
+                                    <td>Nombre</td>
+                                    
                                 </tr>
                             </thead>
                             <tbody>
                                 <%
-                                List<Urna> listaUr=crudUrn.mostrar();
-                                for(Urna ur:listaUr) {
+                                List<Partido> listaP=crudPar.mostrar();
+                                for(Partido par:listaP) {
                                 %>
                                 <tr>
-                                    <td><%= ur.getNoUrna()%></td>
-                                    <td><%= ur.getNoJuntaVotos()%></td>
-                                   
-                                    <td><a href="javascript:cargar(<%= ur.getNoUrna()%>,'<%= ur.getNoJuntaVotos()%>');">Seleccionar</a></td>
+                                    <td><%= par.getIdPartido()%></td>
+                                    <td><%= par.getNombre()%></td>
+                                    
+                                    <td><a href="javascript:cargar(<%= par.getIdPartido() %>,'<%= par.getNombre()%>');">Seleccionar</a></td>
                                 </tr>
                                 <%
                                 }

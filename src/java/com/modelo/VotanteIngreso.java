@@ -6,30 +6,32 @@
 package com.modelo;
 
 import com.conexion.Conexion;
-import java.util.*;
-import java.sql.*;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 /**
  *
  * @author Rivera
  */
-public class UsuarioIngreso extends Conexion{
-    
-    public int accederU(String Usuario,String Clave) throws Exception
+public class VotanteIngreso extends Conexion{
+    public int acceder(String Dui,String Pass, String Pregunta) throws Exception
     {
-        int nivel=0;
+        int depto=0;
        
         ResultSet res;
         try
         {
             this.conectar();
-            String sql="select tipo from usuario where username=? and clave=?";
+            String sql="select departamento from votante where dui=? and pass=? and pregunta=?";
             PreparedStatement pre=this.getCon().prepareStatement(sql);
-            pre.setString(1, Usuario);
-            pre.setString(2, Clave);
+            pre.setString(1, Dui);
+            pre.setString(2, Pass);
+            pre.setString(3, Pregunta);
+           
             res=pre.executeQuery();
             while(res.next())
             {
-                nivel=res.getInt("tipo");
+                depto=res.getInt("departamento");
                
             }
             
@@ -42,7 +44,7 @@ public class UsuarioIngreso extends Conexion{
         {
             this.desconectar();
         }
-        return nivel;
+        return depto;
       
     }
 }

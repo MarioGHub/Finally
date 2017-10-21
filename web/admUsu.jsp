@@ -69,7 +69,9 @@
                             <div class="col-sm-10">
                                 <select name="tipo" class="form-control">
                                     <option value="1">Administrador</option>
-                                    <option value="2">Votante</option>
+                                    <option value="2">Empleado</option>
+                                    <option value="3">Observador Internacional</option>
+                                    <option value="4">Votante</option>
                                 </select>
                             </div>
                         </div>

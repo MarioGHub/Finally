@@ -32,6 +32,22 @@
         <servlet-name>ProcesarUrna</servlet-name>
         <servlet-class>com.controlador.ProcesarUrna</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProcesarPartido</servlet-name>
+        <servlet-class>com.controlador.ProcesarPartido</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProcesarCandidato</servlet-name>
+        <servlet-class>com.controlador.ProcesarCandidato</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProcesarVotante</servlet-name>
+        <servlet-class>com.controlador.ProcesarVotante</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>VotanteSesion</servlet-name>
+        <servlet-class>com.controlador.VotanteSesion</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ProcesarDepartamento</servlet-name>
         <url-pattern>/procesarDepartamento</url-pattern>
@@ -63,6 +79,22 @@
     <servlet-mapping>
         <servlet-name>ProcesarUrna</servlet-name>
         <url-pattern>/procesarUrna</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProcesarPartido</servlet-name>
+        <url-pattern>/procesarPartido</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProcesarCandidato</servlet-name>
+        <url-pattern>/procesarCandidato</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProcesarVotante</servlet-name>
+        <url-pattern>/procesarVotante</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VotanteSesion</servlet-name>
+        <url-pattern>/votanteSesion</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
