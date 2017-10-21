@@ -46,17 +46,17 @@ public class ProcesarDepartamento extends HttpServlet {
             if(request.getParameter("ingresar")!=null)
             {
                 crudDep.insertar(dep);
-                val="Datos insertados correctamente";
+                val="";
             }
             else if(request.getParameter("modificar")!=null)
             {
                 crudDep.modificar(dep);
-                val="Datos modificados correctamente";
+                val="";
             }
             else if(request.getParameter("eliminar")!=null)
             {
                 crudDep.eliminar(dep);
-                val="Datos eliminados correctamente";
+                val="";
             }
             
             rd=request.getRequestDispatcher("jsp/admDep.jsp");

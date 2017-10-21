@@ -39,6 +39,7 @@
     <%
         HttpSession objSesion = request.getSession();
         String usuario;
+        String back= "";
         if (objSesion.getAttribute("usuario") != null && objSesion.getAttribute("nivel") == "1") {
             usuario = objSesion.getAttribute("usuario").toString();
         } else if (objSesion.getAttribute("usuario") != null && objSesion.getAttribute("nivel") == "2") {
@@ -46,12 +47,13 @@
         } else if (objSesion.getAttribute("usuario") != null && objSesion.getAttribute("nivel") == "3") {
             out.print("<script>location.replace('vistaDelegado.jsp');</script>");
         } else {
-            out.print("<script>location.replace('../index.jsp');</script>");
+            out.print("<script>window.history.back();</script>");
+            back= "<div class='modal fade'>";
         }
     %>
     <% CrudUsuario crudUsu=new CrudUsuario(); %>
     <body>
-    
+    <% out.print(back);%> <!--No permite que se vea nada de la pagina-->
         <div class="container-fluid">
             <center>
                 <h1>USUARIOS</h1>

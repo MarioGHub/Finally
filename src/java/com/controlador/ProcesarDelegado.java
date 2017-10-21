@@ -43,17 +43,17 @@ public class ProcesarDelegado extends HttpServlet {
             if(request.getParameter("ingresar")!=null)
             {
                 crudDeI.insertar(di);
-                val="Datos insertados correctamente";
+                val="";
             }
             else if(request.getParameter("modificar")!=null)
             {
                 crudDeI.modificar(di);
-                val="Datos modificados correctamente";
+                val="";
             }
             else if(request.getParameter("eliminar")!=null)
             {
                 crudDeI.eliminar(di);
-                val="Datos eliminados correctamente";
+                val="";
             }
             
             rd=request.getRequestDispatcher("jsp/admDeI.jsp");

@@ -43,7 +43,7 @@
         <% out.print(back);%> <!--No permite que se vea nada de la pagina-->
         <header class="portada">
             <div class="col-md-3 col-md-offset-9">
-                <a class="btn btn-default"href='closeU.jsp' style="background: pink;"><span class="fa fa-sign-out"></span> Cerrar Sesion <%=user%></a><br>
+                <a class="btn btn-default" href='closeU.jsp' style="background: pink;"><span class="fa fa-sign-out"></span> Cerrar Sesion <%=user%></a><br>
             </div>
             <img src="../images/tse.png"><br>
             <h1>ADMINISTRADOR</h1>

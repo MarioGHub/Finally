@@ -33,7 +33,7 @@
         </script>
         <% if(request.getAttribute("valor")!=null) { %>
         <script>
-            alert('<%= request.getAttribute("valor") %>');
+            <%-- alert('<%= request.getAttribute("valor") %>');--%>
             location.replace('jsp/admUr.jsp');
         </script>
         <%
@@ -88,9 +88,9 @@
                         
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" name="ingresar" class="btn btn-success"> Insertar</button>
-                                <button type="submit" name="modificar" class="btn btn-info"> Modificar</button>
-                                <button type="submit" name="eliminar" class="btn btn-danger"> Eliminar</button>
+                                <button type="submit" name="ingresar" onclick="if (!confirm('¿Desea insertar el registro?'))return false;" class="btn btn-success"> Insertar</button>
+                                <button type="submit" name="modificar" onclick="if (!confirm('¿Desea modificar el registro?'))return false;" class="btn btn-info"> Modificar</button>
+                                <button type="submit" name="eliminar" onclick="if (!confirm('¿Desea eliminar el registro?'))return false;" class="btn btn-danger"> Eliminar</button>
                                
                             </div>
                             <br>

@@ -33,12 +33,15 @@
         }
     %>
     <body>
+       <body class="inicio">
         <% out.print(back);%> <!--No permite que se vea nada de la pagina-->
-        <div class="container-fluid">
-            <div class="jumbotron text-center">
-                <h1>Empleado</h1>
+        <header class="portada">
+            <div class="col-md-3 col-md-offset-9">
+                <a class="btn btn-default" style="background: pink;" href='closeU.jsp'><span class="fa fa-sign-out"></span> Cerrar Sesion <%=user%></a><br>
             </div>
-        </div>
+            <img src="../images/tse.png"><br>
+            <h1>EMPLEADO</h1>
+        </header>
         <div class="container">
             <div class="row">
                 <div class="col-sm-4">
@@ -63,8 +66,6 @@
 
                 </div>
                 <div class="col-sm-4">
-                    <a href='closeU.jsp'><img src="../images/exit.png"> Cerrar Sesion <%=user%></a>
-                        <%=admin%>
                 </div>
                 <div class="col-sm-4"></div>
             </div>

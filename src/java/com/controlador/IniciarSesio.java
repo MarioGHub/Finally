@@ -57,8 +57,10 @@ public class IniciarSesio extends HttpServlet {
                     break;
                     
                     default:
-                        out.write("no existe sesion");
-                        break;
+                        out.print("<link rel='stylesheet' href='css/sweetalert.css'>");
+                        out.print("<script  src='js/sweetalert-dev.js'></script>");
+                        out.print("<script  src='js/sweetalert.min.js'></script>");
+                        out.write("<script type='text/javascript'>swal('fhfn','CREDENCIALES INCORRECTAS','error');</script>");
             }
             if(request.getParameter("close")!=null)
             {
