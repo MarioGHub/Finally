@@ -14,17 +14,19 @@ public class Usuario {
     private String userName;
     private String clave;
     private int tipo;
+    private String respuesta;
 
     public Usuario() {
     }
 
-    public Usuario(int id, String userName, String clave, int tipo) {
+    public Usuario(int id, String userName, String clave, int tipo, String respuesta) {
         this.id = id;
         this.userName = userName;
         this.clave = clave;
         this.tipo = tipo;
+        this.respuesta = respuesta;
     }
-
+    
     public int getId() {
         return id;
     }
@@ -56,6 +58,13 @@ public class Usuario {
     public void setTipo(int tipo) {
         this.tipo = tipo;
     }
-    
+
+    public String getRespuesta() {
+        return respuesta;
+    }
+
+    public void setRespuesta(String respuesta) {
+        this.respuesta = respuesta;
+    }
     
 }

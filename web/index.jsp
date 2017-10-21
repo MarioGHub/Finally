@@ -79,7 +79,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <form action="iniciarSesio" method="POST" class="form-signin">
+                <form action="iniciarSesionV" method="POST" class="form-signin">
                     <div class=" form-group">
                         <span class="input-group-addon"><label>DUI</label><br><span class="fa fa-vcard-o"></span></span>
                         <input type="text" class="dui form-control inputFormu" id="usu" minlength="10" name="txtUsu" placeholder="00000000-0" onkeyup="validar()" required="" autofocus="" />
@@ -103,7 +103,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <label>Ingrese su respuesta....</label>
-                                    <input type="text" id="res" class="form-control" placeholder="Respuesta" required="" autofocus=""/>
+                                    <input type="text" id="res" class="form-control" name="txtRespuesta" placeholder="Respuesta" required="" />
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-default btn-block fa fa-times" data-dismiss="modal" style="background: pink;"><span class="font"> Cancelar</span></button>

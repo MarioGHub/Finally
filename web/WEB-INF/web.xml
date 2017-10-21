@@ -36,6 +36,10 @@
         <servlet-name>ProcesarPadron</servlet-name>
         <servlet-class>com.controlador.ProcesarPadron</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>IniciarSesionV</servlet-name>
+        <servlet-class>com.controlador.IniciarSesionV</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ProcesarDepartamento</servlet-name>
         <url-pattern>/procesarDepartamento</url-pattern>
@@ -71,6 +75,10 @@
     <servlet-mapping>
         <servlet-name>ProcesarPadron</servlet-name>
         <url-pattern>/procesarPadron</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>IniciarSesionV</servlet-name>
+        <url-pattern>/iniciarSesionV</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
