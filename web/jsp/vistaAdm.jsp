@@ -24,7 +24,6 @@
     </head>
     <%
         String user = "";
-        String back= "";
         HttpSession objSesion = request.getSession();
         String usuario;
         if (objSesion.getAttribute("usuario") != null && objSesion.getAttribute("nivel") == "1") {
@@ -35,12 +34,10 @@
         } else if (objSesion.getAttribute("usuario") != null && objSesion.getAttribute("nivel") == "3") {
             out.print("<script>location.replace('vistaDelegado.jsp');</script>");
         } else {
-            out.print("<script>window.history.back();</script>");
-            back= "<div class='modal fade'>";
+            out.print("<script>location.replace('../');</script>");
         }
     %>
     <body class="inicio">
-        <% out.print(back);%> <!--No permite que se vea nada de la pagina-->
         <header class="portada">
             <div class="col-md-3 col-md-offset-9">
                 <a class="btn btn-default" href='closeU.jsp' style="background: pink;"><span class="fa fa-sign-out"></span> Cerrar Sesion <%=user%></a><br>
@@ -116,18 +113,36 @@
             <br>
             <br>
             <div class="row">
-                <div class="col-sm-4">
-                    <div class="thumbnail">.
-                        <a href="admUr.jsp">
-                            <img src="../images/sobres-electorales-y-caja_318-64514.jpg" style="width: 80%;height: 250px" class="img-thumbnail">
+                    <div class="col-sm-4">
+                        <div class="thumbnail">.
+                        <a href="admPar.jsp">
+                            <img src="../images/Politics.png" style="width: 80%;height: 250px" class="img-thumbnail">
                             <div class="caption">
-                                <p>Gestionar Urna</p>
+                                <p>Gestionar Partido</p>
                             </div>
                         </a>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm-4"></div>
-            </div>
+            <div class="col-sm-4">
+                        <div class="thumbnail">.
+                        <a href="admCan.jsp">
+                            <img src="../images/policy-1704549_1920.png" style="width: 80%;height: 250px" class="img-thumbnail">
+                            <div class="caption">
+                                <p>Gestionar Candidato</p>
+                            </div>
+                        </a>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="thumbnail">.
+                        <a href="admVot.jsp">
+                            <img src="../images/hombre-que-sostiene-el-papel-voto-en-la-caja_318-64517.jpg" style="width: 80%;height: 250px" class="img-thumbnail">
+                            <div class="caption">
+                                <p>Gestionar Votante</p>
+                            </div>
+                        </a>
+                        </div>
+                    </div>
             <br>
             <br>
         </div>

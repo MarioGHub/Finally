@@ -5,24 +5,21 @@
  */
 package com.controlador;
 
-import com.modelo.UsuarioIngreso;
-import com.modelo.VotanteIngreso;
+import com.modelo.Candidato;
+import com.modelo.CrudCandidato;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author VA
  */
-public class IniciarSesionV extends HttpServlet {
+public class ProcesarCandidato extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,58 +34,43 @@ public class IniciarSesionV extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        HttpSession sesion=request.getSession();
-        if(request.getParameter("btnEnviar")!=null)
+        Candidato can=new Candidato();
+        CrudCandidato crudCan=new CrudCandidato();
+        String val=null;
+        RequestDispatcher rd=null;
+        try
         {
-            String Dui=request.getParameter("dui");
-            String Pass=request.getParameter("pass");
-            String Pregunta=request.getParameter("pregunta");
-            VotanteIngreso ob=new VotanteIngreso();
-             
-            try {
-                switch(ob.acceder(Dui,Pass,Pregunta)){
-                    
-                    case 1:
-                        
-                        sesion.setAttribute("dui", Dui);
-                        sesion.setAttribute("depto", "1");
-                        response.sendRedirect("jsp/Depto1.jsp");
-                        break;
-                        
-                    case 2:
-                        
-                        sesion.setAttribute("dui", Dui);
-                        sesion.setAttribute("depto", "2");
-                        response.sendRedirect("jsp/Depto2.jsp");
-                        break;
-                        
-                    case 3:
-                        
-                        sesion.setAttribute("dui", Dui);
-                        sesion.setAttribute("depto", "3");
-                        response.sendRedirect("jsp/Depto3.jsp");
-                        break;
-                        
-                    case 4:
-                        
-                        sesion.setAttribute("dui", Dui);
-                        sesion.setAttribute("depto", "4");
-                        response.sendRedirect("jsp/Depto4.jsp");
-                        break;
-                        
-                    default:
-                        out.print("<script>alert('CREDENCIALES INCORRECTAS');</script>");
-                        out.print("<script>location.replace('./');</script>");
-                        break;
-                }
-            } catch (Exception ex) {
-                Logger.getLogger(IniciarSesionV.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            if(request.getParameter("close")!=null)
+            can.setIdCandidato(Integer.parseInt(request.getParameter("idcandidato")));
+            can.setIdPartido(Integer.parseInt(request.getParameter("idpartido")));
+            can.setNombre(request.getParameter("nombre"));
+            can.setGenero(request.getParameter("genero"));
+            can.setEdad(Integer.parseInt(request.getParameter("edad")));
+            can.setTelefono(request.getParameter("telefono"));
+            can.setDireccion(request.getParameter("direccion"));
+            if(request.getParameter("ingresar")!=null)
             {
-                sesion.invalidate();
+                crudCan.insertar(can);
+                val="Datos insertados correctamente";
             }
+            else if(request.getParameter("modificar")!=null)
+            {
+                crudCan.modificar(can);
+                val="Datos modificados correctamente";
+            }
+            else if(request.getParameter("eliminar")!=null)
+            {
+                crudCan.eliminar(can);
+                val="Datos eliminados correctamente";
+            }
+            
+            rd=request.getRequestDispatcher("jsp/admCan.jsp");
+            request.setAttribute("valor", val);
+            }
+        catch (Exception e)
+        {
+            request.setAttribute("error", e.toString());
         }
+        rd.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

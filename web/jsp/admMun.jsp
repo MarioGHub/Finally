@@ -46,7 +46,7 @@
         } else if (objSesion.getAttribute("usuario") != null && objSesion.getAttribute("nivel") == "3") {
             usuario = objSesion.getAttribute("usuario").toString();
         } else {
-            out.print("<script>location.replace('../index.jsp');</script>");
+            out.print("<script>location.replace('../');</script>");
         }
     %>
     <% CrudMunicipio crudMuni=new CrudMunicipio(); %>

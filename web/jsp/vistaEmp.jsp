@@ -17,7 +17,6 @@
     <%
         String user = "";
         String admin = "";
-        String back = "";
         HttpSession objSesion = request.getSession(true);
         String usuario;
         if (objSesion.getAttribute("usuario") != null && objSesion.getAttribute("nivel") == "2") {
@@ -28,13 +27,10 @@
             user = "<label>" + usuario + "</label>";
             admin = "<a  class='btn btn-info' href='vistaAdm.jsp'> Panel Administrador</a>";
         } else {
-            out.print("<script>window.history.back();</script>");
-            back = "<div class='modal fade'>";
+            out.print("<script>location.replace('../');</script>");
         }
     %>
-    <body>
        <body class="inicio">
-        <% out.print(back);%> <!--No permite que se vea nada de la pagina-->
         <header class="portada">
             <div class="col-md-3 col-md-offset-9">
                 <a class="btn btn-default" style="background: pink;" href='closeU.jsp'><span class="fa fa-sign-out"></span> Cerrar Sesion <%=user%></a><br>

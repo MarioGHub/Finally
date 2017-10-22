@@ -40,6 +40,18 @@
         <servlet-name>IniciarSesionV</servlet-name>
         <servlet-class>com.controlador.IniciarSesionV</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProcesarCandidato</servlet-name>
+        <servlet-class>com.controlador.ProcesarCandidato</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProcesarVotante</servlet-name>
+        <servlet-class>com.controlador.ProcesarVotante</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProcesarPartido</servlet-name>
+        <servlet-class>com.controlador.ProcesarPartido</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ProcesarDepartamento</servlet-name>
         <url-pattern>/procesarDepartamento</url-pattern>
@@ -79,6 +91,18 @@
     <servlet-mapping>
         <servlet-name>IniciarSesionV</servlet-name>
         <url-pattern>/iniciarSesionV</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProcesarCandidato</servlet-name>
+        <url-pattern>/procesarCandidato</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProcesarVotante</servlet-name>
+        <url-pattern>/procesarVotante</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProcesarPartido</servlet-name>
+        <url-pattern>/procesarPartido</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -82,11 +82,11 @@
                 <form action="iniciarSesionV" method="POST" class="form-signin">
                     <div class=" form-group">
                         <span class="input-group-addon"><label>DUI</label><br><span class="fa fa-vcard-o"></span></span>
-                        <input type="text" class="dui form-control inputFormu" id="usu" minlength="10" name="txtUsu" placeholder="00000000-0" onkeyup="validar()" required="" autofocus="" />
+                        <input type="text" class="dui form-control inputFormu" id="usu" minlength="10" name="dui" placeholder="00000000-0" onkeyup="validar()" required="" autofocus="" />
                     </div> 
                     <div class=" form-group">
                         <span class="input-group-addon"><label>CONTRASEÑA</label><br><span class="fa fa-lock"></span></span>
-                        <input type="password" class="form-control inputFormu" id="clave" name="txtClave" placeholder="Contraseña" onkeyup="validar()" required="" />
+                        <input type="password" class="form-control inputFormu" id="clave" name="pass" placeholder="Contraseña" onkeyup="validar()" required="" />
                     </div>
                     <center>
                         <button id="boton" type="button" class="btn btn-info fa fa-sign-in btn-block" style="color: #000;" data-toggle="modal" data-target="#myModal" disabled="true"><span class="font"> Continuar</span></button>
@@ -103,7 +103,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <label>Ingrese su respuesta....</label>
-                                    <input type="text" id="res" class="form-control" name="txtRespuesta" placeholder="Respuesta" required="" />
+                                    <input type="text" id="res" class="form-control" name="pregunta" placeholder="Respuesta" required="" />
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-default btn-block fa fa-times" data-dismiss="modal" style="background: pink;"><span class="font"> Cancelar</span></button>

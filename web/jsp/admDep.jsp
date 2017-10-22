@@ -43,7 +43,6 @@
     <%
         HttpSession objSesion = request.getSession();
         String usuario;
-        String back = "";
         String user = "";
         if (objSesion.getAttribute("usuario") != null && objSesion.getAttribute("nivel") == "1") {
             usuario = objSesion.getAttribute("usuario").toString();
@@ -53,13 +52,11 @@
         } else if (objSesion.getAttribute("usuario") != null && objSesion.getAttribute("nivel") == "3") {
             usuario = objSesion.getAttribute("usuario").toString();
         } else {
-            out.print("<script>window.history.back();</script>");
-            back = "<div class='modal fade'>";
+            out.print("<script>location.replace('../');</script>");
         }
     %>
     <% CrudDepto crudDep = new CrudDepto(); %>
     <body class="inicio">
-        <% out.print(back);%> <!--No permite que se vea nada de la pagina-->
         <header class="portada">
             <div class="col-md-3 col-md-offset-9">
                 <a class="btn btn-default" href='closeU.jsp' style="background: pink;"><span class="fa fa-sign-out"></span> Cerrar Sesion <%=user%></a><br>
