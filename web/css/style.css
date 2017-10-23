@@ -14,7 +14,7 @@ Fhtml, body, address, blockquote, div, dl, form, h1, h2, h3, h4, h5, h6, ol, p, 
 html, body{ height:100%;}
 body {background: #eff7ef url(../images/fondo.jpg) no-repeat center top;font-family: 'Hammersmith One', sans-serif;}
 
-body.inicio {background: #eff7ef url(../images/portada.jpg)}
+body.inicio {background: #eff7ef url(../images/fondo/portada.jpg)}
 a {	text-decoration: none}
 img, fieldset {border: 0;}
 header{ text-align:center; padding:25px 0 5px 0;color:#006aa9; font-family: 'Lato', sans-serif; font-weight:300;}
